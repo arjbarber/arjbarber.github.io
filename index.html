@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me – Your Name</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #6b7280;
+      --background: #f9fafb;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--background);
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      margin: 0;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--secondary);
+      font-weight: 700;
+      transition: color .3s;
+    }
+    nav a:hover { color: var(--primary); }
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+    .hero p { margin-top: 1rem; font-size: 1.125rem; }
+    section { padding: 4rem 0; }
+    .about {
+      display: grid;
+      gap: 2rem;
+    }
+    @media(min-width: 768px) {
+      .about { grid-template-columns: 1fr 1fr; }
+    }
+    .about img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .projects {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .project-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform .3s;
+    }
+    .project-card:hover { transform: translateY(-5px); }
+    .project-card h3 { margin-top: 0; }
+    .project-card a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: .875rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="#about">About</a>
+      <a href="#projects">Repositories</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Hello, I’m Your Name</h1>
+      <p>I’m a [Your Profession or Interest]. Welcome to my corner of the internet!</p>
+    </section>
+
+    <section id="about">
+      <div class="about">
+        <img src="https://via.placeholder.com/400"
+             alt="Your Photo">
+        <div>
+          <h2>About Me</h2>
+          <p>[A short paragraph about your background, passions, skills, etc.]</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>My GitHub Repositories</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3><a href="https://github.com/username/repo1" target="_blank">Repo One</a></h3>
+          <p>Short description of what Repo One does.</p>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://github.com/username/repo2" target="_blank">Repo Two</a></h3>
+          <p>Short description of what Repo Two does.</p>
+        </div>
+        <!-- Copy & paste another .project-card here for each new repo -->
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Shoot me an <a href="mailto:your.email@example.com">email</a> or find me on
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Your Name. Built with ❤️ on GitHub Pages.
+  </footer>
+
+</body>
+</html>
