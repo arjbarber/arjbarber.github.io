@@ -13,22 +13,32 @@
       --primary: #4f46e5;
       --secondary: #6b7280;
       --background: #f9fafb;
-      --white: #ffffff;
+      --text: #1f2937;
+      --card-bg: #ffffff;
+    }
+    [data-theme="dark"] {
+      --primary: #818cf8;
+      --secondary: #d1d5db;
+      --background: #1f2937;
+      --text: #f3f4f6;
+      --card-bg: #374151;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
       background: var(--background);
-      color: var(--secondary);
+      color: var(--text);
       line-height: 1.6;
+      transition: background .3s, color .3s;
     }
     header {
-      background: var(--white);
+      background: var(--card-bg);
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
+      transition: background .3s;
     }
     .container {
       width: 90%;
@@ -36,10 +46,14 @@
       margin: 0 auto;
       padding: 2rem 0;
     }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     nav ul {
       list-style: none;
       display: flex;
-      justify-content: center;
       padding: 1rem 0;
       margin: 0;
     }
@@ -51,6 +65,15 @@
       transition: color .3s;
     }
     nav a:hover { color: var(--primary); }
+    #theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+      color: var(--secondary);
+      transition: color .3s;
+    }
+    #theme-toggle:hover { color: var(--primary); }
     .hero {
       text-align: center;
       padding: 4rem 0;
@@ -73,18 +96,19 @@
       width: 100%;
       border-radius: 8px;
       object-fit: cover;
+      transition: opacity .3s;
     }
     .projects {
       display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
     .project-card {
-      background: var(--white);
+      background: var(--card-bg);
       padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: transform .3s;
+      transition: transform .3s, background .3s;
     }
     .project-card:hover { transform: translateY(-5px); }
     .project-card h3 { margin-top: 0; }
@@ -104,9 +128,12 @@
 
   <header>
     <nav class="container">
-      <a href="#about">About</a>
-      <a href="#projects">Repositories</a>
-      <a href="#contact">Contact</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Repositories</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
     </nav>
   </header>
 
@@ -118,14 +145,14 @@
 
     <section id="about">
       <div class="about">
-        <img src="https://via.placeholder.com/400"
-             alt="Your Photo">
+        <img src="https://raw.githubusercontent.com/arjbarber/arjbarber.github.io/main/Barber_Andrew.jpg"
+             alt="My Photo">
         <div>
           <h2>About Me</h2>
           <p>Based in Massachusetts, I love diving into new technologies—whether it’s crafting a Pygame prototype, 
-            experimenting with real-time hand-tracking AI, or architecting a Flask backend. 
+            experimenting with real-time body tracking AI, or architecting a Flask backend. 
             I build projects to learn: from an Android app for my grandparents’ quarry business to a Python package manager GUI. 
-            Currently gearing up for my MIT interview and college applications, my goal is to use software to make a real impact—first in public service, 
+            Currently gearing up to go to UNC Chapel Hill for Computer Science, my goal is to use software to make a real impact—first in public service, 
             then in startups of my own.</p>
         </div>
       </div>
@@ -135,14 +162,25 @@
       <h2>My GitHub Repositories</h2>
       <div class="projects">
         <div class="project-card">
-          <h3><a href="https://github.com/username/repo1" target="_blank">Repo One</a></h3>
-          <p>Short description of what Repo One does.</p>
+          <h3><a href="https://github.com/arjbarber/pingpong" target="_blank">AI Hand Tracking Ping Pong Game</a></h3>
+          <p>Uses cv2 and mediapipe to let you play Ping Pong with your camera.</p>
         </div>
         <div class="project-card">
-          <h3><a href="https://github.com/username/repo2" target="_blank">Repo Two</a></h3>
-          <p>Short description of what Repo Two does.</p>
+          <h3><a href="https://github.com/arjbarber/pipim" target="_blank">pipim</a></h3>
+          <p>A beginner-friendly GUI for Python package management.</p>
         </div>
-        <!-- Copy & paste another .project-card here for each new repo -->
+        <div class="project-card">
+          <h3><a href="https://github.com/arjbarber/translator" target="_blank">Translator App</a></h3>
+          <p>A simple translator app using a pretrained AI model.</p>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://github.com/arjbarber/lottery-genie" target="_blank">Lottery Predictor</a></h3>
+          <p>Graphs past lottery data and predicts numbers with a TensorFlow model.</p>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://github.com/arjbarber/irl-platformer" target="_blank">In Real Life Platformer</a></h3>
+          <p>A Doodle Jump–style game you control by moving in real life (cv2 + mediapipe).</p>
+        </div>
       </div>
     </section>
 
@@ -150,7 +188,9 @@
       <h2>Contact</h2>
       <p>
         Shoot me an <a href="mailto:arjbarber@gmail.com">email</a> or find me on
-        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>.
+        <a href="https://www.linkedin.com/in/andrew-barber-217639306" target="_blank" rel="noopener">
+          LinkedIn
+        </a>.
       </p>
     </section>
   </main>
@@ -159,5 +199,26 @@
     &copy; 2025 Andrew Barber. Built on GitHub Pages.
   </footer>
 
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    
+    // Detect saved theme or fall back to system preference
+    const saved = localStorage.getItem('theme');
+    const systemPref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const activeTheme = saved || systemPref;
+
+    // Apply theme
+    root.setAttribute('data-theme', activeTheme);
+    toggle.textContent = activeTheme === 'dark' ? '☀️' : '🌙';
+
+    // Toggle and persist
+    toggle.addEventListener('click', () => {
+      const newTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    });
+  </script>
 </body>
 </html>
