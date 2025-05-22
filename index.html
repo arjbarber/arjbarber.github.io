@@ -8,121 +8,7 @@
     href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
     rel="stylesheet"
   />
-  <style>
-    :root {
-      --primary: #4f46e5;
-      --secondary: #6b7280;
-      --background: #f9fafb;
-      --text: #1f2937;
-      --card-bg: #ffffff;
-    }
-    [data-theme="dark"] {
-      --primary: #818cf8;
-      --secondary: #d1d5db;
-      --background: #1f2937;
-      --text: #f3f4f6;
-      --card-bg: #374151;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background .3s, color .3s;
-    }
-    header {
-      background: var(--card-bg);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      transition: background .3s;
-    }
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2rem 0;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      padding: 1rem 0;
-      margin: 0;
-    }
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: var(--secondary);
-      font-weight: 700;
-      transition: color .3s;
-    }
-    nav a:hover { color: var(--primary); }
-    #theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1.25rem;
-      cursor: pointer;
-      color: var(--secondary);
-      transition: color .3s;
-    }
-    #theme-toggle:hover { color: var(--primary); }
-    .hero {
-      text-align: center;
-      padding: 4rem 0;
-    }
-    .hero h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: var(--primary);
-    }
-    .hero p { margin-top: 1rem; font-size: 1.125rem; }
-    section { padding: 4rem 0; }
-    .about {
-      display: grid;
-      gap: 2rem;
-    }
-    @media(min-width: 768px) {
-      .about { grid-template-columns: 1fr 1fr; }
-    }
-    .about img {
-      width: 100%;
-      border-radius: 8px;
-      object-fit: cover;
-      transition: opacity .3s;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
-    .project-card {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: transform .3s, background .3s;
-    }
-    .project-card:hover { transform: translateY(-5px); }
-    .project-card h3 { margin-top: 0; }
-    .project-card a {
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 700;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 0;
-      font-size: .875rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -131,6 +17,7 @@
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Repositories</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
@@ -139,15 +26,17 @@
 
   <main class="container">
     <section class="hero">
-      <h1>Hello, I’m Andrew Barber</h1>
-      <p>I’m a computer science enthusiast passionate about cybersecurity, game development, and building real-world apps.</p>
+      <div class="hero-text">
+        <h1>Hello, I’m Andrew Barber</h1>
+          <p>I’m a computer science enthusiast passionate about cybersecurity, game development, and building real-world apps.</p>
+      </div>
     </section>
 
     <section id="about">
       <div class="about">
         <img src="https://raw.githubusercontent.com/arjbarber/arjbarber.github.io/main/Barber_Andrew.jpg"
              alt="My Photo">
-        <div>
+        <div class = "about-text">
           <h2>About Me</h2>
           <p>Based in Massachusetts, I love diving into new technologies—whether it’s crafting a Pygame prototype, 
             experimenting with real-time body tracking AI, or architecting a Flask backend. 
@@ -184,19 +73,37 @@
       </div>
     </section>
 
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill-card">
+          <h3>Languages</h3>
+          <p>Python, Java, C++, HTML/CSS, JavaScript</p>
+        </div>
+        <div class="skill-card">
+          <h3>Frameworks</h3>
+          <p>Flask, React, TensorFlow, Pygame</p>
+        </div>
+        <div class="skill-card">
+          <h3>Tools</h3>
+          <p>Git, VS Code, </p>
+        </div>
+      </div>
+
     <section id="contact">
       <h2>Contact</h2>
-      <p>
-        Shoot me an <a href="mailto:arjbarber@gmail.com">email</a> or find me on
-        <a href="https://www.linkedin.com/in/andrew-barber-217639306" target="_blank" rel="noopener">
-          LinkedIn
-        </a>.
-      </p>
+      <div class="contact">
+        <div class="contact-card">
+          <h3><a href="mailto:arjbarber@gmail.com">Email</a></h3>
+        </div>
+        <div class="contact-card">
+          <h3><a href="https://www.linkedin.com/in/andrewbarber08" target="_blank" rel="noopener">LinkedIn</a></h3>
+        </div>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Andrew Barber. Built on GitHub Pages.
+    &copy; 2025 Andrew Barber. All rights reserved.
   </footer>
 
   <script>
