@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,7 @@
     <section class="hero">
       <div class="hero-text">
         <h1>Hello, I’m Andrew Barber</h1>
-          <p>I’m a computer science enthusiast passionate about cybersecurity, game development, and building real-world apps.</p>
+        <p>I’m a computer science enthusiast passionate about cybersecurity, game development, and building real-world apps.</p>
       </div>
     </section>
 
@@ -36,7 +37,7 @@
       <div class="about">
         <img src="https://raw.githubusercontent.com/arjbarber/arjbarber.github.io/main/Barber_Andrew.jpg"
              alt="My Photo">
-        <div class = "about-text">
+        <div class="about-text">
           <h2>About Me</h2>
           <p>Based in Massachusetts, I love diving into new technologies—whether it’s crafting a Pygame prototype, 
             experimenting with real-time body tracking AI, or architecting a Flask backend. 
@@ -50,26 +51,26 @@
     <section id="projects">
       <h2>My GitHub Repositories</h2>
       <div class="projects">
-        <div class="project-card">
-          <h3><a href="https://github.com/arjbarber/pingpong" target="_blank">AI Hand Tracking Ping Pong Game</a></h3>
+        <a class="project-card" href="https://github.com/arjbarber/pingpong" target="_blank">
+          <h3>AI Hand Tracking Ping Pong Game</h3>
           <p>Uses cv2 and mediapipe to let you play Ping Pong with your camera.</p>
-        </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/arjbarber/pipim" target="_blank">pipim</a></h3>
+        </a>
+        <a class="project-card" href="https://github.com/arjbarber/pipim" target="_blank">
+          <h3>pipim</h3>
           <p>A beginner-friendly GUI for Python package management.</p>
-        </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/arjbarber/translator" target="_blank">Translator App</a></h3>
+        </a>
+        <a class="project-card" href="https://github.com/arjbarber/translator" target="_blank">
+          <h3>Translator App</h3>
           <p>A simple translator app using a pretrained AI model.</p>
-        </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/arjbarber/lottery-genie" target="_blank">Lottery Predictor</a></h3>
+        </a>
+        <a class="project-card" href="https://github.com/arjbarber/lottery-genie" target="_blank">
+          <h3>Lottery Predictor</h3>
           <p>Graphs past lottery data and predicts numbers with a TensorFlow model.</p>
-        </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/arjbarber/irl-platformer" target="_blank">In Real Life Platformer</a></h3>
+        </a>
+        <a class="project-card" href="https://github.com/arjbarber/irl-platformer" target="_blank">
+          <h3>In Real Life Platformer</h3>
           <p>A Doodle Jump–style game you control by moving in real life (cv2 + mediapipe).</p>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -78,27 +79,29 @@
       <div class="skills">
         <div class="skill-card">
           <h3>Languages</h3>
-          <p>Python, Java, C++, HTML/CSS, JavaScript</p>
+          <p>Python, Java, C, C++, HTML/CSS, JavaScript, Swift</p>
         </div>
         <div class="skill-card">
           <h3>Frameworks</h3>
-          <p>Flask, React, TensorFlow, Pygame</p>
+          <p>Flask, React, TensorFlow, Pygame, Mediapipe, Tkinter, SwiftUI</p>
         </div>
         <div class="skill-card">
           <h3>Tools</h3>
-          <p>Git, VS Code, </p>
+          <p>Git, VS Code, XCode</p>
         </div>
       </div>
+    </section>
 
     <section id="contact">
       <h2>Contact</h2>
       <div class="contact">
-        <div class="contact-card">
-          <h3><a href="mailto:arjbarber@gmail.com">Email</a></h3>
-        </div>
-        <div class="contact-card">
-          <h3><a href="https://www.linkedin.com/in/andrewbarber08" target="_blank" rel="noopener">LinkedIn</a></h3>
-        </div>
+        <a class="contact-card" href="mailto:arjbarber@gmail.com">
+          <h3>Email</h3>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/andrewbarber08" target="_blank" rel="noopener">
+          <h3>LinkedIn</h3>
+        </a>
+      </div>
     </section>
   </main>
 
@@ -109,17 +112,11 @@
   <script>
     const toggle = document.getElementById('theme-toggle');
     const root = document.documentElement;
-    
-    // Detect saved theme or fall back to system preference
     const saved = localStorage.getItem('theme');
     const systemPref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     const activeTheme = saved || systemPref;
-
-    // Apply theme
     root.setAttribute('data-theme', activeTheme);
     toggle.textContent = activeTheme === 'dark' ? '☀️' : '🌙';
-
-    // Toggle and persist
     toggle.addEventListener('click', () => {
       const newTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
       root.setAttribute('data-theme', newTheme);
